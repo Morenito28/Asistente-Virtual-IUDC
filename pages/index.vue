@@ -1,3 +1,15 @@
 <template>
-  <h1>hola buenassssssss</h1>
+  <div>
+    <TestFirebase />
+  </div>
 </template>
+
+<script>
+import TestFirebase from "~/components/TestFirebase.vue";
+
+export default {
+  components: {
+    TestFirebase,
+  },
+};
+</script>
