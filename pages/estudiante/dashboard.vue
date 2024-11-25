@@ -7,8 +7,5 @@ export default {
 };
 </script>
 <template>
-    <div>
-        <h1>Dashboard del Estudiante</h1>
-        <p>¡Bienvenido!</p>
-    </div>
+    <Sidebar />
 </template>
