@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subir Imagen para Resolver Ecuación</title>
+</head>
+<body>
+
+  <h2>Sube una imagen con una ecuación para resolverla</h2>
+
+  <form id="image-form" enctype="multipart/form-data">
+    <input type="file" name="image" id="image" required />
+    <button type="submit">Subir imagen</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    document.getElementById('image-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData();
+      const fileInput = document.getElementById('image');
+      formData.append('image', fileInput.files[0]);
+
+      try {
+        const response = await fetch('/upload', {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          document.getElementById('result').innerHTML = `
+            <p>Ecuación detectada: ${data.equation}</p>
+            <p>Resultado: ${data.answer}</p>
+          `;
+        } else {
+          document.getElementById('result').innerHTML = `
+            <p>Error: No se pudo resolver la ecuación</p>
+          `;
+        }
+      } catch (error) {
+        console.error(error);
+        document.getElementById('result').innerHTML = `<p>Error al procesar la imagen.</p>`;
+      }
+    });
+  </script>
+
+</body>
+</html>
