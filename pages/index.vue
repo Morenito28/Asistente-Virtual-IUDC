@@ -2,7 +2,7 @@
    <div class="flex min-h-screen">
      <!-- Lado izquierdo con fondo azul y logo -->
      <div class="w-1/2 bg-gradient-to-r from-[#00AAFF] to-[#004099] flex justify-center items-center">
-       <img src="https://universitariadecolombia.edu.co/wp-content/uploads/2022/02/imagenlogop2.png" alt="Logo" class="max-w-[80%]" />
+       <img src="/assets/img/imglogoiudc-white.png" alt="Logo" class="max-w-[80%]" />
      </div>
        
      <!-- Lado derecho con formulario en fondo blanco -->
