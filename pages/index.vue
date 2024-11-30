@@ -13,7 +13,7 @@
 
     <!-- Lado derecho con formulario en fondo blanco -->
     <div class="w-1/2 bg-white flex justify-center items-center">
-      <form @submit.prevent="handleLogin" class="max-w-sm w-full p-1 px-16" >
+      <form @submit.prevent="handleLogin" class="max-w-sm w-full p-1 px-16">
         <h1
           class="uppercase flex m-1 py-5 text-blue-700 justify-center items-center font-bold text-6xl text-center"
         >
@@ -68,30 +68,36 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { useAuth } from '~/composables/useAuth';
-import { useRouter } from 'vue-router';
+import { ref } from "vue";
+import { useAuth } from "~/composables/useAuth";
+import { useRouter } from "vue-router";
 
 const { loginUser } = useAuth();
 const router = useRouter();
 
-const email = ref('');
-const password = ref('');
-const errorMessage = ref('');
+const email = ref("");
+const password = ref("");
+const errorMessage = ref("");
 
-const handleLogin = async () => {
+async function handleLogin() {
   try {
-    const userData = await loginUser({ email: email.value, password: password.value });
+    const userData = await loginUser({
+      email: email.value,
+      password: password.value,
+    });
     // Redirigir según el rol
-    if (userData.role === 'docente') { 
-      router.push('/docente/dashboard');
-    } else if (userData.role === 'estudiante') { 
-      router.push('/estudiante/asistente-virtual');
+    if (userData.role === "docente") {
+      console.log("Docente");
+      router.push("/docente");
+    } else if (userData.role === "estudiante") {
+      router.push("/estudiante");
+      console.log("Estudiante");
     } else {
-      throw new Error('Rol no reconocido');
+      throw new Error("Rol no reconocido");
     }
   } catch (error) {
+    console.error("Error en handleLogin:", error); // Muestra el error en la consola
     errorMessage.value = error.message;
   }
-};
+}
 </script>
