@@ -1,18 +1,10 @@
 import { useFirestore } from "vuefire";
 import { doc, setDoc, getDoc } from "firebase/firestore";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { signInWithEmailAndPassword } from 'firebase/auth'; // Agrega esta línea
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
 export const useAuth = () => {
   const auth = useNuxtApp().$firebaseAuth; // Firebase Authentication
   const firestore = useFirestore(); // Firestore
-  /**
-   * Función para registrar un usuario
-   * @param {Object} userData - Datos del usuario
-   * @param {string} userData.email - Correo del usuario
-   * @param {string} userData.password - Contraseña
-   * @param {string} userData.name - Nombre del usuario
-   */
   const registerUser = async ({
     email,
     password,
