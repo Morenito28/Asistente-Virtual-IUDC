@@ -6,6 +6,6 @@ definePageMeta({
 
 <template>
     <NuxtLayout>
-        <h1>Hola Mundo 2</h1>
+        <h1>Contenido Programático</h1>
     </NuxtLayout>
 </template>
