@@ -25,7 +25,7 @@ import Aside from '~/components/Aside.vue'
 // Definimos las opciones del menú
 const menuItems = [
     {
-        href: "/estudiante/asistente-virtual",
+        href: "/estudiante/",
         label: "Asistente Virtual",
         icon: {
             viewBox: "0 0 24 24",

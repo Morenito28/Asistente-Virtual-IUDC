@@ -5,7 +5,7 @@ definePageMeta({
 </script>
 
 <template>
-  <NuxtLayout>
+    <NuxtLayout>
     <form>
       <label for="chat" class="sr-only">Your message</label>
       <div class="flex items-center px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-700">
